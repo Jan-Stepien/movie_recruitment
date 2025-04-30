@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SearchBox extends StatelessWidget {
+class MovieListSearchBox extends StatelessWidget {
   final void Function(String)? onSubmitted;
 
-  const SearchBox({
+  const MovieListSearchBox({
     super.key,
     this.onSubmitted,
   });

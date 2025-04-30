@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MovieCard extends StatelessWidget {
+class MovieListCard extends StatelessWidget {
   final String title;
   final String rating;
   final VoidCallback onTap;
 
-  const MovieCard({
+  const MovieListCard({
     super.key,
     required this.title,
     required this.rating,

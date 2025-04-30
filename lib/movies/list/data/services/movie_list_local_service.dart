@@ -27,14 +27,17 @@ class MovieListLocalService {
     }
     final resultsJson = results.map((movie) => movie.toJson()).toList();
     await _storage.setString(_searchHistoryKey, jsonEncode(resultsJson));
+    _streamController.add(results);
   }
 
   List<MovieListItem> getResults() {
     final listJson = _storage.getString(_searchHistoryKey);
-    if (listJson == null) return [];
+    if (listJson == null) return <MovieListItem>[];
 
     final results = jsonDecode(listJson);
-    return results.map((json) => MovieListItem.fromJson(json)).toList();
+    final mappedResults =
+        results.map<MovieListItem>((json) => MovieListItem.fromJson(json));
+    return mappedResults.toList();
   }
 
   Future<void> clear() async {
