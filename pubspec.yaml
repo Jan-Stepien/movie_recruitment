@@ -1,0 +1,24 @@
+name: flutter_recruitment_task
+description: Flutter recruitment task.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ^3.29.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  json_annotation: 4.9.0
+  http: 1.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 5.0.0
+  build_runner: 2.4.15
+  json_serializable: 6.9.4
+
+flutter:
+  uses-material-design: true
