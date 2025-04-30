@@ -5,18 +5,22 @@ import 'package:flutter_recruitment_task/movies/list/data/models/movie_list.dart
 import 'package:http/http.dart' as http;
 
 class MovieListRemoteService {
-  // TODO: move to dart define
-  static const apiKey = '052afdb6e0ab9af424e3f3c8edbb33fb';
-  // TODO: move to dart define
-  static const baseUrl = 'api.themoviedb.org';
+  final String _apiKey;
+  final String _baseUrl;
+
+  MovieListRemoteService({
+    required String apiKey,
+    required String baseUrl,
+  })  : _apiKey = apiKey,
+        _baseUrl = baseUrl;
 
   Future<List<MovieListItem>> searchMovies({required String query}) async {
     final parameters = {
-      'api_key': apiKey,
+      'api_key': _apiKey,
       'query': query,
     };
 
-    final endpoint = Uri.https(baseUrl, '/3/search/movie', parameters);
+    final endpoint = Uri.https(_baseUrl, '/3/search/movie', parameters);
 
     final response = await http.get(endpoint);
     final json = jsonDecode(response.body);

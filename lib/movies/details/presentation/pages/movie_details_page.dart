@@ -1,53 +1,79 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_recruitment_task/movies/details/data/repositories/movie_details_repository.dart';
+import 'package:flutter_recruitment_task/movies/details/presentation/state/movie_details_bloc/movie_details_bloc.dart';
+import 'package:flutter_recruitment_task/movies/details/presentation/widgets/movie_detail_item.dart';
+import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
 
-class MovieDetailsPage extends StatefulWidget {
-  const MovieDetailsPage({super.key});
+class MovieDetailsPage extends StatelessWidget {
+  const MovieDetailsPage({super.key, required this.movieId});
+
+  final int movieId;
 
   static const routePath = '/details';
 
   @override
-  MovieDetailsPageState createState() => MovieDetailsPageState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => MovieDetailsBloc(
+        movieId: movieId,
+        movieDetailsRepository: context.read<MovieDetailsRepository>(),
+      ),
+      child: const MovieDetailsView(),
+    );
+  }
 }
 
-class MovieDetailsPageState extends State<MovieDetailsPage> {
-  final _details = [
-    MovieDetails(title: 'Budget', content: '\$2400000'),
-    MovieDetails(title: 'Revenue', content: '\$10000000'),
-    MovieDetails(title: 'Should I watch it today?', content: 'Yes!'),
-  ];
+class MovieDetailsView extends StatelessWidget {
+  const MovieDetailsView({super.key});
 
   @override
-  void initState() {
-    super.initState();
-  }
+  Widget build(BuildContext context) {
+    final status =
+        context.select((MovieDetailsBloc bloc) => bloc.state.loadingStatus);
+    final details =
+        context.select((MovieDetailsBloc bloc) => bloc.state.details);
+    final shouldWatch =
+        context.select((MovieDetailsBloc bloc) => bloc.state.shouldWatch);
 
-  @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(),
-        body: ListView.separated(
-          separatorBuilder: (context, index) => Container(
-            height: 1.0,
-            color: Colors.grey.shade300,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(details?.title ?? ''),
+      ),
+      body: switch (status) {
+        LoadingStatus.loaded || LoadingStatus.loadingMore => ListView(
+            children: [
+              MovieDetailItem(
+                label: 'Budget',
+                value: '\$${details?.budget?.toString() ?? ''}',
+              ),
+              const Divider(),
+              MovieDetailItem(
+                label: 'Revenue',
+                value: '\$${details?.revenue?.toString() ?? ''}',
+              ),
+              const Divider(),
+              MovieDetailItem(
+                label: 'Should I watch it today?',
+                value: shouldWatch ? 'Yes!' : 'No!',
+              ),
+            ],
           ),
-          itemBuilder: (context, index) => Container(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  _details[index].title,
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                SizedBox(height: 8.0),
-                Text(
-                  _details[index].content,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-              ],
+        LoadingStatus.loading =>
+          const Center(child: CircularProgressIndicator()),
+        LoadingStatus.error => Center(
+            child: Text(
+              context.select(
+                (MovieDetailsBloc bloc) => bloc.state.error ?? 'Error',
+              ),
             ),
           ),
-          itemCount: _details.length,
-        ),
-      );
+        LoadingStatus.initial => const Center(
+            child: Text(
+              'Initial',
+            ),
+          ),
+      },
+    );
+  }
 }

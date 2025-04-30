@@ -42,5 +42,6 @@ class MovieListLocalService {
 
   Future<void> clear() async {
     await _storage.remove(_searchHistoryKey);
+    _streamController.add(<MovieListItem>[]);
   }
 }

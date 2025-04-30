@@ -12,7 +12,9 @@ class MovieApp extends StatelessWidget {
         initialRoute: MovieListPage.routePath,
         routes: {
           MovieListPage.routePath: (context) => MovieListPage(),
-          MovieDetailsPage.routePath: (context) => MovieDetailsPage(),
+          MovieDetailsPage.routePath: (context) => MovieDetailsPage(
+                movieId: ModalRoute.of(context)?.settings.arguments as int,
+              ),
         },
       );
 }

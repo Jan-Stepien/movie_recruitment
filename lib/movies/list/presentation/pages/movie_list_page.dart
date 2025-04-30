@@ -32,7 +32,7 @@ class MovieListView extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.movie_creation_outlined),
             onPressed: () {
-              Navigator.pushNamed(context, MovieDetailsPage.routePath);
+              // TODO: implement navigation
             },
           ),
         ],

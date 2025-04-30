@@ -4,20 +4,20 @@ import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_it
 import 'package:collection/collection.dart';
 
 class MovieListRepository {
-  final MovieListLocalService _movieListLocalService;
-  final MovieListRemoteService _movieListRemoteService;
+  final MovieListLocalService _localService;
+  final MovieListRemoteService _remoteService;
 
-  Stream<List<MovieListItem>> get stream => _movieListLocalService.stream;
+  Stream<List<MovieListItem>> get stream => _localService.stream;
 
   MovieListRepository({
-    required MovieListLocalService movieListLocalService,
-    required MovieListRemoteService movieListRemoteService,
-  })  : _movieListLocalService = movieListLocalService,
-        _movieListRemoteService = movieListRemoteService;
+    required MovieListLocalService localService,
+    required MovieListRemoteService remoteService,
+  })  : _localService = localService,
+        _remoteService = remoteService;
 
   Future<void> searchMovies({required String query}) async {
-    final results = await _movieListRemoteService.searchMovies(query: query);
-    await _movieListLocalService.saveSearchResults(
+    final results = await _remoteService.searchMovies(query: query);
+    await _localService.saveSearchResults(
       results: results.sortedByCompare(
         (movie) => movie.voteAverage,
         (a, b) => b.compareTo(a),
