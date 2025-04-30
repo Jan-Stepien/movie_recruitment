@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recruitment_task/models/movie_details.dart';
+import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
 
 class MovieDetailsPage extends StatefulWidget {
   const MovieDetailsPage({super.key});
+
+  static const routePath = '/details';
 
   @override
   MovieDetailsPageState createState() => MovieDetailsPageState();

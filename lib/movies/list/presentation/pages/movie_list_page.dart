@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recruitment_task/models/movie.dart';
-import 'package:flutter_recruitment_task/pages/movie_list/movie_card.dart';
-import 'package:flutter_recruitment_task/pages/movie_list/search_box.dart';
-import 'package:flutter_recruitment_task/services/movies_remote_service.dart';
+import 'package:flutter_recruitment_task/movies/details/presentation/pages/movie_details_page.dart';
+import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
+import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_card.dart';
+import 'package:flutter_recruitment_task/movies/list/presentation/widgets/search_box.dart';
+import 'package:flutter_recruitment_task/movies/list/data/services/movie_list_remote_service.dart';
 
 class MovieListPage extends StatefulWidget {
+  static const routePath = '/movie_list';
+
   const MovieListPage({super.key});
 
   @override
@@ -12,9 +15,9 @@ class MovieListPage extends StatefulWidget {
 }
 
 class MovieListPageState extends State<MovieListPage> {
-  final apiService = MoviesRemoteService();
+  final apiService = MovieListRemoteService();
 
-  Future<List<Movie>> _movieList = Future.value([]);
+  Future<List<MovieListItem>> _movieList = Future.value([]);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -23,7 +26,7 @@ class MovieListPageState extends State<MovieListPage> {
             IconButton(
               icon: Icon(Icons.movie_creation_outlined),
               onPressed: () {
-                //TODO implement navigation
+                Navigator.pushNamed(context, MovieDetailsPage.routePath);
               },
             ),
           ],
@@ -37,7 +40,7 @@ class MovieListPageState extends State<MovieListPage> {
         ),
       );
 
-  Widget _buildContent() => FutureBuilder<List<Movie>>(
+  Widget _buildContent() => FutureBuilder<List<MovieListItem>>(
       future: _movieList,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -53,7 +56,7 @@ class MovieListPageState extends State<MovieListPage> {
         }
       });
 
-  Widget _buildMoviesList(List<Movie> movies) => ListView.separated(
+  Widget _buildMoviesList(List<MovieListItem> movies) => ListView.separated(
         separatorBuilder: (context, index) => Container(
           height: 1.0,
           color: Colors.grey.shade300,
