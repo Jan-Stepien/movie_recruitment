@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_recruitment_task/core/extensions/build_context_extension.dart';
 import 'package:flutter_recruitment_task/movies/list/presentation/state/movie_list_bloc/movie_list_bloc.dart';
 import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_list_results_list.dart';
 import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
@@ -19,8 +20,8 @@ class MovieListResultsView extends StatelessWidget {
           movieList: movieList,
         ),
       LoadingStatus.loading => Center(child: CircularProgressIndicator()),
-      LoadingStatus.error => Center(child: Text('Error')),
-      LoadingStatus.initial => Center(child: Text('Initial')),
+      LoadingStatus.error => Center(child: Text(context.l10n.error)),
+      LoadingStatus.initial => Center(child: Text(context.l10n.initial)),
     });
   }
 }

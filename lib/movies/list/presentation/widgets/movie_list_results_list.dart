@@ -17,7 +17,7 @@ class MovieListResultsList extends StatelessWidget {
       ),
       itemBuilder: (context, index) => MovieListCard(
         title: movieList[index].title,
-        rating: '${(movieList[index].voteAverage * 10).toInt()}%',
+        rating: '${(movieList[index].voteAverage * 10).toInt()}',
         onTap: () => Navigator.pushNamed(
           context,
           MovieDetailsPage.routePath,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_recruitment_task/core/extensions/build_context_extension.dart';
 import 'package:flutter_recruitment_task/movies/details/domain/repositories/movie_details_repository.dart';
 import 'package:flutter_recruitment_task/movies/details/presentation/state/movie_details_bloc/movie_details_bloc.dart';
 import 'package:flutter_recruitment_task/movies/details/presentation/widgets/movie_detail_item.dart';
@@ -44,18 +45,18 @@ class MovieDetailsView extends StatelessWidget {
         LoadingStatus.loaded || LoadingStatus.loadingMore => ListView(
             children: [
               MovieDetailItem(
-                label: 'Budget',
+                label: context.l10n.budget,
                 value: '\$${details?.budget?.toString() ?? ''}',
               ),
               const Divider(),
               MovieDetailItem(
-                label: 'Revenue',
+                label: context.l10n.revenue,
                 value: '\$${details?.revenue?.toString() ?? ''}',
               ),
               const Divider(),
               MovieDetailItem(
-                label: 'Should I watch it today?',
-                value: shouldWatch ? 'Yes!' : 'No!',
+                label: context.l10n.shouldWatchToday,
+                value: shouldWatch ? context.l10n.yes : context.l10n.no,
               ),
             ],
           ),
@@ -64,14 +65,13 @@ class MovieDetailsView extends StatelessWidget {
         LoadingStatus.error => Center(
             child: Text(
               context.select(
-                (MovieDetailsBloc bloc) => bloc.state.error ?? 'Error',
+                (MovieDetailsBloc bloc) =>
+                    bloc.state.error ?? context.l10n.error,
               ),
             ),
           ),
-        LoadingStatus.initial => const Center(
-            child: Text(
-              'Initial',
-            ),
+        LoadingStatus.initial => Center(
+            child: Text(context.l10n.initial),
           ),
       },
     );

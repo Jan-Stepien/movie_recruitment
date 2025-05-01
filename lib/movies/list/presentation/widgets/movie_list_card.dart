@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_recruitment_task/core/extensions/build_context_extension.dart';
 
 class MovieListCard extends StatelessWidget {
   final String title;
@@ -29,7 +30,7 @@ class MovieListCard extends StatelessWidget {
               ),
               SizedBox(width: 16.0),
               Text(
-                '$rating 🌟',
+                context.l10n.ratingWithStar(rating),
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ],

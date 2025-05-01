@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_recruitment_task/movies/details/presentation/pages/movie_details_page.dart';
 import 'package:flutter_recruitment_task/movies/list/presentation/pages/movie_list_page.dart';
 
@@ -7,14 +8,17 @@ class MovieApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'Movie Browser',
+        title: AppLocalizations.of(context)?.appName,
         theme: ThemeData(primarySwatch: Colors.amber),
         initialRoute: MovieListPage.routePath,
         routes: {
-          MovieListPage.routePath: (context) => MovieListPage(),
+          MovieListPage.routePath: (context) => const MovieListPage(),
           MovieDetailsPage.routePath: (context) => MovieDetailsPage(
                 movieId: ModalRoute.of(context)?.settings.arguments as int,
               ),
         },
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        locale: const Locale('en'),
       );
 }

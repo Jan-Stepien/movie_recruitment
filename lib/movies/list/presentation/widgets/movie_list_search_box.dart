@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_recruitment_task/core/extensions/build_context_extension.dart';
 
 class MovieListSearchBox extends StatelessWidget {
   final void Function(String)? onSubmitted;
@@ -22,7 +23,7 @@ class MovieListSearchBox extends StatelessWidget {
           decoration: InputDecoration(
             prefixIcon: Icon(Icons.search),
             border: InputBorder.none,
-            hintText: 'Search...',
+            hintText: context.l10n.searchHint,
           ),
           onSubmitted: onSubmitted,
         ),
