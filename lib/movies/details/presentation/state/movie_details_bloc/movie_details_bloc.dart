@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_recruitment_task/movies/details/data/repositories/movie_details_repository.dart';
+import 'package:flutter_recruitment_task/movies/details/domain/repositories/movie_details_repository.dart';
 import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
 import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
 

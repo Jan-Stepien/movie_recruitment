@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_recruitment_task/movies/details/data/repositories/movie_details_repository.dart';
+import 'package:flutter_recruitment_task/movies/details/domain/repositories/movie_details_repository.dart';
 import 'package:flutter_recruitment_task/movies/details/data/services/movie_details_local_service.dart';
 import 'package:flutter_recruitment_task/movies/details/data/services/movie_details_remote_service.dart';
 import 'package:flutter_recruitment_task/movies/list/data/services/movie_list_local_service.dart';

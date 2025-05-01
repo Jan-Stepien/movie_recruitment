@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_recruitment_task/movies/details/presentation/pages/movie_details_page.dart';
 import 'package:flutter_recruitment_task/movies/list/domain/repositories/movie_list_repository.dart';
 import 'package:flutter_recruitment_task/movies/list/presentation/state/movie_list_bloc/movie_list_bloc.dart';
 import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_list_results_view.dart';
