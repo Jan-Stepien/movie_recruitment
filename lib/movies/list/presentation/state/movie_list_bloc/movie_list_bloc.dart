@@ -9,7 +9,6 @@ import 'package:flutter_recruitment_task/shared/presentation/models/loading_stat
 part 'movie_list_event.dart';
 part 'movie_list_state.dart';
 
-// Bloc
 class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
   final MovieListRepository _movieListRepository;
 
