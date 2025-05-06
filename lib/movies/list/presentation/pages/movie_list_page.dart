@@ -30,10 +30,10 @@ class MovieListView extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-            icon: Icon(Icons.movie_creation_outlined),
-            onPressed: () {
-              // TODO: implement navigation
-            },
+            icon: const Icon(Icons.movie_creation_outlined),
+            onPressed: () => movieListBloc.add(
+              const CreateMovieRequested(),
+            ),
           ),
         ],
         title: Text(context.l10n.appTitle),

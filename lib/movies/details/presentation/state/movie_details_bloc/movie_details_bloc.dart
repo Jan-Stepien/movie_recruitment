@@ -30,6 +30,7 @@ class MovieDetailsBloc extends Bloc<MovieDetailsEvent, MovieDetailsState> {
     _subscriptions.add(_movieDetailsRepository.stream
         .where((details) => details?.id == _movieId)
         .listen((details) => add(DetailsChanged(details))));
+
     add(FetchMovieDetails(_movieId));
   }
 

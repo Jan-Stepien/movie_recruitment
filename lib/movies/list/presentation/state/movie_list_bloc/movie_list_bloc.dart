@@ -21,7 +21,7 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
         )) {
     on<SearchMovies>(_onSearchMovies);
     on<ResultChanged>(_onResultChanged);
-
+    on<CreateMovieRequested>(_onCreateMovieRequested);
     _movieListRepository.stream.listen((movies) {
       add(ResultChanged(movies));
     });
@@ -50,5 +50,10 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
       loadingStatus: LoadingStatus.loaded,
       movies: event.movies,
     ));
+  }
+
+  FutureOr<void> _onCreateMovieRequested(
+      CreateMovieRequested event, Emitter<MovieListState> emit) {
+    // TODO(jan-stepien): implement create movie in other bloc
   }
 }

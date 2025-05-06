@@ -9,15 +9,25 @@ import 'package:flutter_recruitment_task/shared/presentation/models/loading_stat
 class MovieDetailsPage extends StatelessWidget {
   const MovieDetailsPage({super.key, required this.movieId});
 
-  final int movieId;
+  final int? movieId;
 
   static const routePath = '/details';
 
   @override
   Widget build(BuildContext context) {
+    final safeMovieId = movieId;
+
+    if (safeMovieId == null) {
+      return Scaffold(
+        body: Center(
+          child: Text(context.l10n.error),
+        ),
+      );
+    }
+
     return BlocProvider(
       create: (context) => MovieDetailsBloc(
-        movieId: movieId,
+        movieId: safeMovieId,
         movieDetailsRepository: context.read<MovieDetailsRepository>(),
       ),
       child: const MovieDetailsView(),
