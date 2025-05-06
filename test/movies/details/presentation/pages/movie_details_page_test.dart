@@ -23,6 +23,9 @@ void main() {
     late MockMovieDetailsRepository mockRepository;
     setUp(() {
       mockRepository = MockMovieDetailsRepository();
+      when(() => mockRepository.stream).thenAnswer(
+        (_) => Stream<MovieDetails?>.value(null),
+      );
     });
     group('renders', () {
       testWidgets('MovieDetailsView if movieId is not null',

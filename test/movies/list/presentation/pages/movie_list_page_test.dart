@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
 import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_list_results_view.dart';
 import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_list_search_box.dart';
 import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
@@ -22,6 +23,11 @@ void main() {
 
     setUp(() {
       mockRepository = MockMovieListRepository();
+      when(() => mockRepository.stream).thenAnswer(
+        (_) => Stream<List<MovieListItem>>.value(
+          [],
+        ),
+      );
     });
     group('renders', () {
       testWidgets('MovieListView', (WidgetTester tester) async {
@@ -67,6 +73,30 @@ void main() {
         expect(find.byType(AppBar), findsOneWidget);
         expect(find.byType(MovieListSearchBox), findsOneWidget);
         expect(find.byType(MovieListResultsView), findsOneWidget);
+      });
+
+      testWidgets('element in results view', (WidgetTester tester) async {
+        when(() => movieListBloc.state).thenReturn(
+          MovieListState(
+            movies: [
+              MovieListItem(id: 1, title: 'Test Movie', voteAverage: 8.5),
+              MovieListItem(id: 2, title: 'Test Movie 2', voteAverage: 9),
+            ],
+            loadingStatus: LoadingStatus.loaded,
+          ),
+        );
+        await tester.pumpWidget(
+          AppProvider(
+            child: BlocProvider.value(
+              value: movieListBloc,
+              child: const MovieListView(),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.text('Test Movie'), findsOneWidget);
+        expect(find.text('Test Movie 2'), findsOneWidget);
       });
     });
 
