@@ -4,9 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_recruitment_task/movies/details/data/services/movie_details_local_service.dart';
 import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class MockSharedPreferences extends Mock implements SharedPreferences {}
+import '../../../../mocks/third_party_mocks.dart';
 
 void main() {
   late MovieDetailsLocalService service;

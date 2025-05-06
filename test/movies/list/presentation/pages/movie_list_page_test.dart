@@ -12,7 +12,7 @@ import 'package:flutter_recruitment_task/movies/list/presentation/state/movie_li
 import 'package:mocktail/mocktail.dart';
 
 import '../../../../app_provider.dart';
-import '../../../../mocks/mocks.dart';
+import '../../../../mocks/repository_mocks.dart';
 
 class MockMovieListBloc extends MockBloc<MovieListEvent, MovieListState>
     implements MovieListBloc {}

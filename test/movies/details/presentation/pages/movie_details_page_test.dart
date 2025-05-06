@@ -12,7 +12,7 @@ import 'package:flutter_recruitment_task/movies/details/presentation/state/movie
 import 'package:mocktail/mocktail.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations_en.dart';
 import '../../../../app_provider.dart';
-import '../../../../mocks/mocks.dart';
+import '../../../../mocks/repository_mocks.dart';
 
 class MockMovieDetailsBloc
     extends MockBloc<MovieDetailsEvent, MovieDetailsState>
