@@ -2,6 +2,8 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
+import 'package:flutter_recruitment_task/movies/details/presentation/state/movie_details_bloc/movie_details_event.dart';
+import 'package:flutter_recruitment_task/movies/details/presentation/state/movie_details_bloc/movie_details_state.dart';
 import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_recruitment_task/movies/details/presentation/pages/movie_details_page.dart';

@@ -1,5 +1,11 @@
-part of 'movie_details_bloc.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
+import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
+import 'package:clock/clock.dart';
+part 'movie_details_state.g.dart';
 
+@CopyWith()
 class MovieDetailsState extends Equatable {
   final LoadingStatus loadingStatus;
   final MovieDetails? details;
@@ -12,7 +18,8 @@ class MovieDetailsState extends Equatable {
   });
 
   bool get shouldWatch {
-    if (DateTime.now().weekday != 7) {
+    final now = clock.now();
+    if (now.weekday != 7) {
       return false;
     }
     final revenue = details?.revenue;
@@ -25,15 +32,4 @@ class MovieDetailsState extends Equatable {
 
   @override
   List<Object?> get props => [loadingStatus, details, error];
-
-  MovieDetailsState copyWith({
-    LoadingStatus? loadingStatus,
-    MovieDetails? details,
-    String? error,
-  }) =>
-      MovieDetailsState(
-        loadingStatus: loadingStatus ?? this.loadingStatus,
-        details: details ?? this.details,
-        error: error ?? this.error,
-      );
 }

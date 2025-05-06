@@ -1,4 +1,4 @@
-part of 'movie_details_bloc.dart';
+import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
 
 abstract class MovieDetailsEvent {}
 

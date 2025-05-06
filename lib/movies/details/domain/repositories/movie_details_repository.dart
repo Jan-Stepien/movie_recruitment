@@ -14,7 +14,7 @@ class MovieDetailsRepository {
   })  : _localService = localService,
         _remoteService = remoteService;
 
-  Future<void> fetchMovieDetails(int movieId) async {
+  Future<void> fetchMovieDetails({required int movieId}) async {
     final details = await _remoteService.fetchMovieDetails(movieId);
     await _localService.saveMovieDetails(details);
   }
