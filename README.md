@@ -1,6 +1,6 @@
 # MovieBrowser
 
-This app is a part of recruitment task for a Flutter Developer position at Droids On Roids. It allows users to browse movie database and look for some interesting financial statistics. It uses The Movie Database API as a source of data about movies, its documentation is available [here](https://developers.themoviedb.org/3/getting-started/introduction).
+This app is a part of recruitment task for a Flutter Developer position. It allows users to browse movie database and look for some interesting financial statistics. It uses The Movie Database API as a source of data about movies, its documentation is available [here](https://developers.themoviedb.org/3/getting-started/introduction).
 
 ## Recruitment task
 
