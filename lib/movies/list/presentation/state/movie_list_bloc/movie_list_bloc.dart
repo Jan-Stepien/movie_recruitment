@@ -34,6 +34,7 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
     emit(state.copyWith(loadingStatus: LoadingStatus.loading));
     try {
       await _movieListRepository.searchMovies(query: event.query);
+      emit(state.copyWith(loadingStatus: LoadingStatus.loaded));
     } catch (e) {
       emit(state.copyWith(
         loadingStatus: LoadingStatus.error,
@@ -47,8 +48,9 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
     Emitter<MovieListState> emit,
   ) {
     emit(state.copyWith(
-      loadingStatus: LoadingStatus.loaded,
       movies: event.movies,
+      loadingStatus:
+          event.movies.isNotEmpty ? LoadingStatus.loaded : state.loadingStatus,
     ));
   }
 

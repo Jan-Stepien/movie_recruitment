@@ -16,9 +16,9 @@ class MovieListResultsView extends StatelessWidget {
 
     return Expanded(
         child: switch (status) {
-      LoadingStatus.loaded || LoadingStatus.loadingMore => MovieListResultsList(
-          movieList: movieList,
-        ),
+      LoadingStatus.loaded ||
+      LoadingStatus.loadingMore =>
+        MovieListResultsList(movieList: movieList),
       LoadingStatus.loading => Center(child: CircularProgressIndicator()),
       LoadingStatus.error => Center(child: Text(context.l10n.error)),
       LoadingStatus.initial => Center(child: Text(context.l10n.initial)),

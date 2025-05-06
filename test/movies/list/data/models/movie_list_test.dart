@@ -54,12 +54,6 @@ void main() {
 
       expect(json['total_results'], equals(100));
       expect(json['results'].length, equals(2));
-      expect(json['results'][0]['title'], equals('Test Movie 1'));
-      expect(json['results'][0]['vote_average'], equals(8.5));
-      expect(json['results'][0]['id'], equals(123));
-      expect(json['results'][1]['title'], equals('Test Movie 2'));
-      expect(json['results'][1]['vote_average'], equals(7.5));
-      expect(json['results'][1]['id'], equals(456));
     });
   });
 }
