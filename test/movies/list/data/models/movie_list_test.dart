@@ -52,8 +52,6 @@ void main() {
 
       final json = movieList.toJson();
 
-      print(json);
-
       expect(json['total_results'], equals(100));
       expect(json['results'].length, equals(2));
       expect(json['results'][0]['title'], equals('Test Movie 1'));
