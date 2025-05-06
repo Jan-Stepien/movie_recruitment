@@ -11,7 +11,7 @@ class MovieDetailsLocalService {
   final SharedPreferences _storage;
 
   late final StreamController<MovieDetails?> _streamController =
-      BehaviorSubject.seeded(getMovieDetails());
+      BehaviorSubject.seeded(_getMovieDetails());
   Stream<MovieDetails?> get stream => _streamController.stream;
 
   MovieDetailsLocalService({
@@ -23,7 +23,7 @@ class MovieDetailsLocalService {
     _streamController.add(details);
   }
 
-  MovieDetails? getMovieDetails() {
+  MovieDetails? _getMovieDetails() {
     try {
       final detailsJson = _storage.getString(_movieDetailsKey);
       if (detailsJson == null) {

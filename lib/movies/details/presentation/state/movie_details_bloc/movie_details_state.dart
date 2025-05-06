@@ -6,7 +6,7 @@ import 'package:clock/clock.dart';
 part 'movie_details_state.g.dart';
 
 @CopyWith()
-class MovieDetailsState extends Equatable {
+class MovieDetailsState with EquatableMixin {
   final LoadingStatus loadingStatus;
   final MovieDetails? details;
   final String? error;

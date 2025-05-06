@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'movie_details.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class MovieDetails {
+class MovieDetails with EquatableMixin {
   final int id;
   final String title;
   final int? budget;
@@ -20,4 +21,7 @@ class MovieDetails {
       _$MovieDetailsFromJson(json);
 
   Map<String, dynamic> toJson() => _$MovieDetailsToJson(this);
+
+  @override
+  List<Object?> get props => [id, title, budget, revenue];
 }

@@ -11,7 +11,7 @@ class MovieListLocalService {
   final SharedPreferences _storage;
 
   late final StreamController<List<MovieListItem>> _streamController =
-      BehaviorSubject.seeded(getResults());
+      BehaviorSubject.seeded(_getResults());
   Stream<List<MovieListItem>> get stream => _streamController.stream;
 
   MovieListLocalService({
@@ -30,14 +30,19 @@ class MovieListLocalService {
     _streamController.add(results);
   }
 
-  List<MovieListItem> getResults() {
-    final listJson = _storage.getString(_searchHistoryKey);
-    if (listJson == null) return <MovieListItem>[];
+  List<MovieListItem> _getResults() {
+    try {
+      final listJson = _storage.getString(_searchHistoryKey);
+      if (listJson == null) return <MovieListItem>[];
 
-    final results = jsonDecode(listJson);
-    final mappedResults =
-        results.map<MovieListItem>((json) => MovieListItem.fromJson(json));
-    return mappedResults.toList();
+      final results = jsonDecode(listJson);
+      final mappedResults =
+          results.map<MovieListItem>((json) => MovieListItem.fromJson(json));
+      return mappedResults.toList();
+    } catch (e) {
+      _storage.remove(_searchHistoryKey);
+      return <MovieListItem>[];
+    }
   }
 
   Future<void> clear() async {

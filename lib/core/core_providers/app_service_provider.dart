@@ -4,6 +4,7 @@ import 'package:flutter_recruitment_task/movies/details/data/services/movie_deta
 import 'package:flutter_recruitment_task/movies/details/data/services/movie_details_remote_service.dart';
 import 'package:flutter_recruitment_task/movies/list/data/services/movie_list_local_service.dart';
 import 'package:flutter_recruitment_task/movies/list/data/services/movie_list_remote_service.dart';
+import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppServiceProvider extends StatelessWidget {
@@ -21,6 +22,8 @@ class AppServiceProvider extends StatelessWidget {
     const movieDbUrl = String.fromEnvironment('MOVIE_DB_URL');
     const movieDbApiKey = String.fromEnvironment('MOVIE_DB_API_KEY');
 
+    final httpClient = http.Client();
+
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(
@@ -32,6 +35,7 @@ class AppServiceProvider extends StatelessWidget {
           create: (context) => MovieListRemoteService(
             apiKey: movieDbApiKey,
             baseUrl: movieDbUrl,
+            client: httpClient,
           ),
         ),
         RepositoryProvider(
@@ -43,6 +47,7 @@ class AppServiceProvider extends StatelessWidget {
           create: (context) => MovieDetailsRemoteService(
             apiKey: movieDbApiKey,
             baseUrl: movieDbUrl,
+            client: httpClient,
           ),
         ),
       ],
