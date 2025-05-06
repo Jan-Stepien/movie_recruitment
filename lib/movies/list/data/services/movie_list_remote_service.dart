@@ -25,7 +25,6 @@ class MovieListRemoteService {
     final response = await http.get(endpoint);
     final json = jsonDecode(response.body);
     final movieList = MovieList.fromJson(json);
-
     return movieList.results;
   }
 }
