@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recruitment_task/movies/details/presentation/pages/movie_details_page.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
-import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_list_card.dart';
+import 'package:movie_master_detail/movies/details/presentation/pages/movie_details_page.dart';
+import 'package:movie_master_detail/movies/list/domain/models/movie_list_item.dart';
+import 'package:movie_master_detail/movies/list/presentation/widgets/movie_list_card.dart';
 
 class MovieListResultsList extends StatelessWidget {
   const MovieListResultsList({super.key, required this.movieList});

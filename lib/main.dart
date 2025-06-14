@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recruitment_task/core/core_providers/app_repository_provider.dart';
-import 'package:flutter_recruitment_task/core/core_providers/app_service_provider.dart';
-import 'package:flutter_recruitment_task/core/movie_app.dart';
+import 'package:movie_master_detail/core/core_providers/app_repository_provider.dart';
+import 'package:movie_master_detail/core/core_providers/app_service_provider.dart';
+import 'package:movie_master_detail/core/movie_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {

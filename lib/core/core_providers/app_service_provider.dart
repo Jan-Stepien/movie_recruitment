@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_recruitment_task/movies/details/data/services/movie_details_local_service.dart';
-import 'package:flutter_recruitment_task/movies/details/data/services/movie_details_remote_service.dart';
-import 'package:flutter_recruitment_task/movies/list/data/services/movie_list_local_service.dart';
-import 'package:flutter_recruitment_task/movies/list/data/services/movie_list_remote_service.dart';
+import 'package:movie_master_detail/movies/details/data/services/movie_details_local_service.dart';
+import 'package:movie_master_detail/movies/details/data/services/movie_details_remote_service.dart';
+import 'package:movie_master_detail/movies/list/data/services/movie_list_local_service.dart';
+import 'package:movie_master_detail/movies/list/data/services/movie_list_remote_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 

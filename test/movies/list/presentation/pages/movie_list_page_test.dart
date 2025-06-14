@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
-import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_list_results_view.dart';
-import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_list_search_box.dart';
-import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
+import 'package:movie_master_detail/movies/list/domain/models/movie_list_item.dart';
+import 'package:movie_master_detail/movies/list/presentation/widgets/movie_list_results_view.dart';
+import 'package:movie_master_detail/movies/list/presentation/widgets/movie_list_search_box.dart';
+import 'package:movie_master_detail/shared/presentation/models/loading_status.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_recruitment_task/movies/list/presentation/pages/movie_list_page.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/repositories/movie_list_repository.dart';
-import 'package:flutter_recruitment_task/movies/list/presentation/state/movie_list_bloc/movie_list_bloc.dart';
+import 'package:movie_master_detail/movies/list/presentation/pages/movie_list_page.dart';
+import 'package:movie_master_detail/movies/list/domain/repositories/movie_list_repository.dart';
+import 'package:movie_master_detail/movies/list/presentation/state/movie_list_bloc/movie_list_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../../app_provider.dart';

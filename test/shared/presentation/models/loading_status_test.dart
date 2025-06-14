@@ -1,4 +1,4 @@
-import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
+import 'package:movie_master_detail/shared/presentation/models/loading_status.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

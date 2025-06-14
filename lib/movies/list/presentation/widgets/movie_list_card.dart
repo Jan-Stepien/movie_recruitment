@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_recruitment_task/core/extensions/build_context_extension.dart';
+import 'package:movie_master_detail/core/extensions/build_context_extension.dart';
 
 class MovieListCard extends StatelessWidget {
   final String title;

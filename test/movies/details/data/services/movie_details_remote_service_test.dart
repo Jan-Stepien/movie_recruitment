@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_recruitment_task/movies/details/data/services/movie_details_remote_service.dart';
-import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
+import 'package:movie_master_detail/movies/details/data/services/movie_details_remote_service.dart';
+import 'package:movie_master_detail/movies/details/domain/models/movie_details.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 

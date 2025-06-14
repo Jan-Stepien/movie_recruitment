@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
+import 'package:movie_master_detail/movies/list/domain/models/movie_list_item.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

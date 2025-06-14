@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
-import 'package:flutter_recruitment_task/movies/list/data/models/movie_list.dart';
+import 'package:movie_master_detail/movies/list/domain/models/movie_list_item.dart';
+import 'package:movie_master_detail/movies/list/data/models/movie_list.dart';
 import 'package:http/http.dart' as http;
 
 class MovieListRemoteService {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_recruitment_task/core/extensions/build_context_extension.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/repositories/movie_list_repository.dart';
-import 'package:flutter_recruitment_task/movies/list/presentation/state/movie_list_bloc/movie_list_bloc.dart';
-import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_list_results_view.dart';
-import 'package:flutter_recruitment_task/movies/list/presentation/widgets/movie_list_search_box.dart';
+import 'package:movie_master_detail/core/extensions/build_context_extension.dart';
+import 'package:movie_master_detail/movies/list/domain/repositories/movie_list_repository.dart';
+import 'package:movie_master_detail/movies/list/presentation/state/movie_list_bloc/movie_list_bloc.dart';
+import 'package:movie_master_detail/movies/list/presentation/widgets/movie_list_results_view.dart';
+import 'package:movie_master_detail/movies/list/presentation/widgets/movie_list_search_box.dart';
 
 class MovieListPage extends StatelessWidget {
   static const routePath = '/movie_list';

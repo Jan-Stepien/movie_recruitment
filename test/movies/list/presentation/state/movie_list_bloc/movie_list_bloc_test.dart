@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
-import 'package:flutter_recruitment_task/movies/list/presentation/state/movie_list_bloc/movie_list_bloc.dart';
-import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
+import 'package:movie_master_detail/movies/list/domain/models/movie_list_item.dart';
+import 'package:movie_master_detail/movies/list/presentation/state/movie_list_bloc/movie_list_bloc.dart';
+import 'package:movie_master_detail/shared/presentation/models/loading_status.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:rxdart/rxdart.dart';

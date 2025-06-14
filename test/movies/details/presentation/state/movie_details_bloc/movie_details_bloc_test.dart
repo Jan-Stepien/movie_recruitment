@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:fake_async/fake_async.dart';
-import 'package:flutter_recruitment_task/movies/details/presentation/state/movie_details_bloc/movie_details_event.dart';
-import 'package:flutter_recruitment_task/movies/details/presentation/state/movie_details_bloc/movie_details_state.dart';
+import 'package:movie_master_detail/movies/details/presentation/state/movie_details_bloc/movie_details_event.dart';
+import 'package:movie_master_detail/movies/details/presentation/state/movie_details_bloc/movie_details_state.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
-import 'package:flutter_recruitment_task/movies/details/presentation/state/movie_details_bloc/movie_details_bloc.dart';
-import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
+import 'package:movie_master_detail/movies/details/domain/models/movie_details.dart';
+import 'package:movie_master_detail/movies/details/presentation/state/movie_details_bloc/movie_details_bloc.dart';
+import 'package:movie_master_detail/shared/presentation/models/loading_status.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:clock/clock.dart';
 import 'package:bloc_test/bloc_test.dart';

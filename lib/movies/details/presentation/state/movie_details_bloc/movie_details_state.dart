@@ -1,7 +1,7 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_recruitment_task/movies/details/domain/models/movie_details.dart';
-import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
+import 'package:movie_master_detail/movies/details/domain/models/movie_details.dart';
+import 'package:movie_master_detail/shared/presentation/models/loading_status.dart';
 import 'package:clock/clock.dart';
 part 'movie_details_state.g.dart';
 

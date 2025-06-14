@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/repositories/movie_list_repository.dart';
+import 'package:movie_master_detail/movies/list/domain/models/movie_list_item.dart';
+import 'package:movie_master_detail/movies/list/domain/repositories/movie_list_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../../mocks/service_mocks.dart';

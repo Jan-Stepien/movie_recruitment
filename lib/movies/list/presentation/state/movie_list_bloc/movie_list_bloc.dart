@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/repositories/movie_list_repository.dart';
-import 'package:flutter_recruitment_task/shared/presentation/models/loading_status.dart';
+import 'package:movie_master_detail/movies/list/domain/models/movie_list_item.dart';
+import 'package:movie_master_detail/movies/list/domain/repositories/movie_list_repository.dart';
+import 'package:movie_master_detail/shared/presentation/models/loading_status.dart';
 
 part 'movie_list_event.dart';
 part 'movie_list_state.dart';

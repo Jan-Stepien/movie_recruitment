@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_recruitment_task/movies/list/data/services/movie_list_local_service.dart';
-import 'package:flutter_recruitment_task/movies/list/domain/models/movie_list_item.dart';
+import 'package:movie_master_detail/movies/list/data/services/movie_list_local_service.dart';
+import 'package:movie_master_detail/movies/list/domain/models/movie_list_item.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
